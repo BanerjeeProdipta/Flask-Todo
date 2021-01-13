@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Update Task</title>
+{% endblock %}
+{% block body %}
+<form class="form-inline" action="/update/{{task.id}}" method="POST">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Task</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="text" class="form-control w-full" id="content" name="content" value="{{task.content}}"></td>
+    </tr>
+    </tbody>
+</table>
+    <input type="submit" class="btn btn-primary" value="Update Task">
+</form>
+{% endblock %}

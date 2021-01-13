@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Home</title>
+{% endblock %}
+{% block body %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.content}}</td>
+        <td>{{ task.date_created.date()}}</td>
+        <td>
+            <a href="/update/{{task.id}}">Update</a>
+            &nbsp;&nbsp;
+            <a href="/delete/{{task.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<form class="form-inline" action="/" method="POST">
+    <input type="text" class="form-control w-full" id="content" name="content">
+    <input type="submit" class="btn btn-primary" value="Add Task">
+</form>
+{% endblock %}
